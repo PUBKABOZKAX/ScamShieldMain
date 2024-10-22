@@ -7,6 +7,7 @@ public final class ScamShieldMain extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        AdvancementRegistering.run();
     }
 
     @Override
