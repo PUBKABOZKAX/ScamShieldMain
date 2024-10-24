@@ -1,12 +1,49 @@
 {
-	"advancement.scamshieldmain.root.title": "Welcome to the ScumShield.",
-	"advancement.scamshieldmain.root.description": "We have prepared a quest chain for you so that you can figure out all the changes. Go through the quests and you will see all the innovations.",
+	"advancement.scamshieldmain.root.title": "Welcome to the ScumShield",
+	"advancement.scamshieldmain.root.description": "We have prepared a quest chain for you so that you can figure out all the changes. Go through the quests and you will see all the innovations",
 
-	"advancement.scamshieldmain.first_tools.title": "First tools.",
-	"advancement.scamshieldmain.first_tools.description": "Embark on your journey by acquiring the first flimsy tools.",
+	"advancement.scamshieldmain.first_tools.title": "First Tools",
+	"advancement.scamshieldmain.first_tools.description": "Embark on your journey by acquiring the first flimsy tools",
 
-	"advancement.scamshieldmain.tough_as_nails.title": "Attempts to overcome thirst.",
-	"advancement.scamshieldmain.tough_as_nails.description": "Embark on your journey by acquiring the first flimsy tools."
+	"advancement.scamshieldmain.tough_as_nails_root.title": "Attempts to overcome thirst",
+	"advancement.scamshieldmain.tough_as_nails_root.description": "1",
 
+	"advancement.scamshieldmain.flint.title": "a",
+	"advancement.scamshieldmain.flint.description": "12",
 
+	"advancement.scamshieldmain.fabric.title": "ab",
+	"advancement.scamshieldmain.fabric.description": "123",
+
+	"advancement.scamshieldmain.flint_tools.title": "abc",
+	"advancement.scamshieldmain.flint_tools.description": "1234",
+
+	"advancement.scamshieldmain.iron_tools.title": "abcd",
+	"advancement.scamshieldmain.iron_tools.description": "12345",
+
+	"advancement.scamshieldmain.leather_armor.title": "abcde",
+	"advancement.scamshieldmain.leather_armor.description": "123456",
+
+	"advancement.scamshieldmain.iron_armor.title": "abcdef",
+	"advancement.scamshieldmain.iron_armor.description": "1234567",
+
+	"advancement.scamshieldmain.blast_furnace.title": "abcdefg",
+	"advancement.scamshieldmain.blast_furnace.description": "12345678",
+
+	"advancement.scamshieldmain.ferrudam_equipment.title": "abcdefge",
+	"advancement.scamshieldmain.ferrudam_equipment.description": "123456789",
+
+	"advancement.scamshieldmain.netherite_equipment.title": "abcdefgef",
+	"advancement.scamshieldmain.netherite_equipment.description": "12345678910",
+
+	"advancement.scamshieldmain.bottle.title": "abcdefgefa",
+	"advancement.scamshieldmain.bottle.description": "1234567891011",
+
+	"advancement.scamshieldmain.totem_saving.title": "abcdefgefab",
+	"advancement.scamshieldmain.totem_saving.description": "123456789101112",
+
+	"advancement.scamshieldmain.fisherman_snorkel.title": "abcdefgefabc",
+	"advancement.scamshieldmain.fisherman_snorkel.description": "12345678910111213",
+
+	"advancement.scamshieldmain.flower_wreath.title": "abcdefgefabcd",
+	"advancement.scamshieldmain.flower_wreath.description": "1234567891011121314"
 }
