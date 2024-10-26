@@ -16,8 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static me.udnek.itemscoreu.customadvancement.ConstructableCustomAdvancement.RequirementsStrategy.AND;
-import static me.udnek.itemscoreu.customadvancement.ConstructableCustomAdvancement.RequirementsStrategy.OR;
+import static me.udnek.itemscoreu.customadvancement.CustomAdvancementContainer.RequirementsStrategy.AND;
+import static me.udnek.itemscoreu.customadvancement.CustomAdvancementContainer.RequirementsStrategy.OR;
 import static me.udnek.rpgu.item.Items.*;
 import static org.bukkit.Material.*;
 
@@ -30,7 +30,6 @@ public class AdvancementRegistering {
         ConstructableCustomAdvancement root = generator("root", FABRIC.getItem(), null);
         Objects.requireNonNull(root.getDisplay()).background("textures/block/cobblestone.png");
         root.addCriterion("tick", AdvancementCriterion.TICK);
-        root.getDisplay().announceToChat(true);
         advancements.add(root);
 
         ConstructableCustomAdvancement woodenTools = generator("first_tools", new ItemStack(Material.WOODEN_PICKAXE), root);
@@ -63,6 +62,7 @@ public class AdvancementRegistering {
 
         ConstructableCustomAdvancement blastFurnace = generator("blast_furnace", new ItemStack(BLAST_FURNACE), ironTools);
         addCriteria(blastFurnace, AND, BLAST_FURNACE);
+        blastFurnace.addFakeParent(ironArmor);
         advancements.add(blastFurnace);
 
         ConstructableCustomAdvancement ferrudamEquipment = generator("ferrudam_equipment", FERRUDAM_PICKAXE.getItem(), blastFurnace);
@@ -85,7 +85,7 @@ public class AdvancementRegistering {
 
         //////////////////////////////////////////////////////////
 
-        ConstructableCustomAdvancement totemSaving = generator("totem_saving", new ItemStack(TOTEM_OF_UNDYING), root);
+        ConstructableCustomAdvancement totemSaving = generator("totem_of_saving", new ItemStack(TOTEM_OF_UNDYING), root);
         addCriteria(totemSaving, AND, TOTEM_OF_UNDYING);
         advancements.add(totemSaving);
 
@@ -107,7 +107,7 @@ public class AdvancementRegistering {
         displayAdvancement.description(Component.translatable("advancement.scamshieldmain." + key + ".description"));
         displayAdvancement.announceToChat(false);
         advancement.display(displayAdvancement);
-        advancement.parent(parent);
+        advancement.setParent(parent);
 
         return advancement;
     }
