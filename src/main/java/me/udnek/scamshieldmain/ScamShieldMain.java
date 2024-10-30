@@ -1,6 +1,7 @@
 package me.udnek.scamshieldmain;
 
 import me.udnek.itemscoreu.resourcepack.ResourcePackablePlugin;
+import me.udnek.scamshieldmain.command.InfiniteRegen;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class ScamShieldMain extends JavaPlugin implements ResourcePackablePlugin {
@@ -14,6 +15,8 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
         instance = this;
 
         AdvancementRegistering.run();
+
+        getCommand("infiniteregen").setExecutor(new InfiniteRegen());
     }
 
     @Override
