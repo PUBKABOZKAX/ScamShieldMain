@@ -16,10 +16,12 @@ public class InfiniteRegen implements @Nullable CommandExecutor {
         if (args.length != 1 ) return false;
         if (args[0].equals("on")) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.INSTANT_HEALTH, -1, 1, false, false));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, -1, 1, false, false));
             return true;
         }
         else if (args[0].equals("off")) {
             player.removePotionEffect(PotionEffectType.INSTANT_HEALTH);
+            player.removePotionEffect(PotionEffectType.SATURATION);
             return true;
         }
         return false;
