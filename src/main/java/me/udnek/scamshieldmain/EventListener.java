@@ -21,7 +21,7 @@ public class EventListener extends SelfRegisteringListener {
     public void deleteSeed(PlayerCommandPreprocessEvent event){
         if (event.getMessage().equals("/seed")) {
             event.setCancelled(true);
-            event.getPlayer().sendMessage("Ой ты чё ахуел? Команда работает в консоли)))", "Если не доступа то зачем пишиешь это?");
+            event.getPlayer().sendMessage("Ой ты чё ахуел? Команда работает в консоли)))", "Если нет доступа то зачем пишиешь это?");
         }
     }
 }
