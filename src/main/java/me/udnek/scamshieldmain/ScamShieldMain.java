@@ -14,7 +14,7 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
     public void onEnable() {
         instance = this;
 
-        AdvancementRegistering.run();
+        new EventListener(ScamShieldMain.getInstance());
 
         getCommand("infiniteregen").setExecutor(new InfiniteRegen());
     }
