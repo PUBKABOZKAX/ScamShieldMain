@@ -18,9 +18,4 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
 
         getCommand("infiniteregen").setExecutor(new InfiniteRegen());
     }
-
-    @Override
-    public void onDisable() {
-        // Plugin shutdown logic
-    }
 }

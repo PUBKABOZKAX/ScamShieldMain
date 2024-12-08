@@ -1,49 +1,130 @@
 {
-	"advancement.scamshieldmain.root.title": "Welcome to the ScumShield",
-	"advancement.scamshieldmain.root.description": "We have prepared a quest chain for you so that you can figure out all the changes. Go through the quests and you will see all the innovations",
+	"advancement.scamshieldmain.root.title": "ScumShield",
+	"advancement.scamshieldmain.root.description": "Мы потготовили цепочку квестов, дабы познакомить и проводить вас по всем нововведениям",
 
-	"advancement.scamshieldmain.first_tools.title": "First Tools",
-	"advancement.scamshieldmain.first_tools.description": "Embark on your journey by acquiring the first flimsy tools",
+	"advancement.scamshieldmain.first_tools.title": "Первые инструменты",
+	"advancement.scamshieldmain.first_tools.description": "Начало как обычно",
 
-	"advancement.scamshieldmain.tough_as_nails_root.title": "Attempts to overcome thirst",
-	"advancement.scamshieldmain.tough_as_nails_root.description": "1",
+	"advancement.scamshieldmain.rpgu_amethyst_doloire.title": "Фарм",
+	"advancement.scamshieldmain.rpgu_amethyst_doloire.description": "Хорошое магическое оружие ближнего боя",
 
-	"advancement.scamshieldmain.flint.title": "a",
-	"advancement.scamshieldmain.flint.description": "12",
+	"advancement.scamshieldmain.netherite_equipment.title": "Лейтгеймп",
+	"advancement.scamshieldmain.netherite_equipment.description": "Самая лучшая экипировка",
 
-	"advancement.scamshieldmain.fabric.title": "ab",
-	"advancement.scamshieldmain.fabric.description": "123",
+	"advancement.scamshieldmain.rpgu_phantom_chestplate.title": "Это не элитры",
+	"advancement.scamshieldmain.rpgu_phantom_chestplate.description": "Да",
 
-	"advancement.scamshieldmain.flint_tools.title": "abc",
-	"advancement.scamshieldmain.flint_tools.description": "1234",
+	"advancement.scamshieldmain.fisherman_snorkel.title": "Фишки работают",
+	"advancement.scamshieldmain.fisherman_snorkel.description": "Под водой поплавать",
 
-	"advancement.scamshieldmain.iron_tools.title": "abcd",
-	"advancement.scamshieldmain.iron_tools.description": "12345",
+	"advancement.scamshieldmain.wolf_armor.title": "Сабака",
+	"advancement.scamshieldmain.wolf_armor.description": "Первая броня, если идти в магию",
 
-	"advancement.scamshieldmain.leather_armor.title": "abcde",
-	"advancement.scamshieldmain.leather_armor.description": "123456",
+	"advancement.scamshieldmain.sphere_of_discord.title": "Реально имба",
+	"advancement.scamshieldmain.sphere_of_discord.description": "Даёт кучу магического потенциал, но забирает много урона",
 
-	"advancement.scamshieldmain.iron_armor.title": "abcdef",
-	"advancement.scamshieldmain.iron_armor.description": "1234567",
+	"advancement.scamshieldmain.in_water.title": "Освежиться",
+	"advancement.scamshieldmain.in_water.description": "Вода - простой и эффективный способ сбросить температуру",
 
-	"advancement.scamshieldmain.blast_furnace.title": "abcdefg",
-	"advancement.scamshieldmain.blast_furnace.description": "12345678",
+	"advancement.scamshieldmain.leather_armor.title": "Первая броня",
+	"advancement.scamshieldmain.leather_armor.description": "Без кожанки не получится скрафтить броню тира выше",
 
-	"advancement.scamshieldmain.ferrudam_equipment.title": "abcdefge",
-	"advancement.scamshieldmain.ferrudam_equipment.description": "123456789",
+	"advancement.scamshieldmain.flint.title": "Камушек",
+	"advancement.scamshieldmain.flint.description": "Острый предмет, пойдёт на замену камня",
 
-	"advancement.scamshieldmain.netherite_equipment.title": "abcdefgef",
-	"advancement.scamshieldmain.netherite_equipment.description": "12345678910",
+	"advancement.scamshieldmain.tanu_leather_armor.title": "Одежда",
+	"advancement.scamshieldmain.tanu_leather_armor.description": "Кожанка защитит от холода",
 
-	"advancement.scamshieldmain.bottle.title": "abcdefgefa",
-	"advancement.scamshieldmain.bottle.description": "1234567891011",
+	"advancement.scamshieldmain.pure_bottle.title": "Наконец-то",
+	"advancement.scamshieldmain.pure_bottle.description": "Вот эту воду уже можно пить без проблем",
 
-	"advancement.scamshieldmain.totem_saving.title": "abcdefgefab",
-	"advancement.scamshieldmain.totem_saving.description": "123456789101112",
+	"advancement.scamshieldmain.boiling_bottle.title": "Кипяток",
+	"advancement.scamshieldmain.boiling_bottle.description": "Лучше сделать сразу чай - он куда более эффективней против холода",
 
-	"advancement.scamshieldmain.fisherman_snorkel.title": "abcdefgefabc",
-	"advancement.scamshieldmain.fisherman_snorkel.description": "12345678910111213",
+	"advancement.scamshieldmain.chainmail_armor.title": "Эти цепи на мне",
+	"advancement.scamshieldmain.chainmail_armor.description": "У неё теперь есть крафт, кстати. Хороша против жары",
 
-	"advancement.scamshieldmain.flower_wreath.title": "abcdefgefabcd",
-	"advancement.scamshieldmain.flower_wreath.description": "1234567891011121314"
+	"advancement.scamshieldmain.rpgu_heavy_amethyst_doloire.title": "Перефарм",
+	"advancement.scamshieldmain.rpgu_heavy_amethyst_doloire.description": "Отличное магическое оружие ближнего боя",
+
+	"advancement.scamshieldmain.sphere_of_balance.title": "Ради баланса",
+	"advancement.scamshieldmain.sphere_of_balance.description": "Не эффективный для ближников, ведь забирает урон с руки",
+
+	"advancement.scamshieldmain.rpgu_shaman_tambourine.title": "Калдун",
+	"advancement.scamshieldmain.rpgu_shaman_tambourine.description": "Предмет с уроном, что увеличивается от магического потенциал",
+
+	"advancement.scamshieldmain.rpgu_phantom_wing.title": "KFC",
+	"advancement.scamshieldmain.rpgu_phantom_wing.description": "Добавлять из них элитры?",
+
+	"advancement.scamshieldmain.rusty_ring.title": "Ржавый, но зато какой!",
+	"advancement.scamshieldmain.rusty_ring.description": "Хороший артефакт на защиты",
+
+	"advancement.scamshieldmain.bottle.title": "Бутыль",
+	"advancement.scamshieldmain.bottle.description": "Именно из этой бутылки можно будет пить. Не перепутать с ванильной!",
+
+	"advancement.scamshieldmain.flower_wreath.title": "Цветочки",
+	"advancement.scamshieldmain.flower_wreath.description": "Хороший стартовый предмет, всем советую",
+
+	"advancement.scamshieldmain.flint_tools.title": "Каменные?",
+	"advancement.scamshieldmain.flint_tools.description": "Вот теперь можно и железо покапать",
+
+	"advancement.scamshieldmain.grim_armor.title": "Зомбительно но окэй",
+	"advancement.scamshieldmain.grim_armor.description": "Сильная броня для магов, что сражаются в ближнем бою",
+
+	"advancement.scamshieldmain.blast_furnace.title": "Новый (старый) блок",
+	"advancement.scamshieldmain.blast_furnace.description": "С помощью этой печи вы сможете плавить интересные вещи",
+
+	"advancement.scamshieldmain.esoteric_salve.title": "Намазь",
+	"advancement.scamshieldmain.esoteric_salve.description": "Самый слабый магический предмет",
+
+	"advancement.scamshieldmain.totem_of_saving.title": "Это имба",
+	"advancement.scamshieldmain.totem_of_saving.description": "Сохраняет предметы при смерти, не давая им деспавниться. Всем скрафтить, это имба",
+
+	"advancement.scamshieldmain.tanu.title": "Сюрвач",
+	"advancement.scamshieldmain.tanu.description": "Жажду и температуру не советую игнорировать",
+
+	"advancement.scamshieldmain.dirty_bottle.title": "Хоть что-то",
+	"advancement.scamshieldmain.dirty_bottle.description": "Есть и получше",
+
+	"advancement.scamshieldmain.juice.title": "Смузи",
+	"advancement.scamshieldmain.juice.description": "Хорошо справляется с жарой",
+
+	"advancement.scamshieldmain.wither_wreath.title": "Старший брат",
+	"advancement.scamshieldmain.wither_wreath.description": "Ценой хп",
+
+	"advancement.scamshieldmain.amethyst_dirk.title": "Заточка",
+	"advancement.scamshieldmain.amethyst_dirk.description": "Первый меч, что может нанести магический урон, только про потенциал не забудьте",
+
+	"advancement.scamshieldmain.campfire.title": "Вайб",
+	"advancement.scamshieldmain.campfire.description": "И еду пожарить и согреться",
+
+	"advancement.scamshieldmain.iron_armor.title": "Пошло-поехало",
+	"advancement.scamshieldmain.iron_armor.description": "Это физ билд",
+
+	"advancement.scamshieldmain.fabric.title": "База",
+	"advancement.scamshieldmain.fabric.description": "Из неё крафтится броня и инструменты",
+
+	"advancement.scamshieldmain.tea.title": "Чаёк",
+	"advancement.scamshieldmain.tea.description": "Для вайба, если холодно",
+
+	"advancement.scamshieldmain.rpgu_evocation_robe.title": "Волшебник",
+	"advancement.scamshieldmain.rpgu_evocation_robe.description": "Магический весь такой",
+
+	"advancement.scamshieldmain.nautilus_core.title": "Резня",
+	"advancement.scamshieldmain.nautilus_core.description": "Для ближнейбойных магов",
+
+	"advancement.scamshieldmain.iron_tools.title": "Железяки",
+	"advancement.scamshieldmain.iron_tools.description": "Дальше алмазы",
+
+	"advancement.scamshieldmain.ferrudam_equipment.title": "Тут должна быть алмазка?",
+	"advancement.scamshieldmain.ferrudam_equipment.description": "Крафтится двумя способами!",
+
+	"advancement.scamshieldmain.rpgu_air_elemental_tome.title": "Еул",
+	"advancement.scamshieldmain.rpgu_air_elemental_tome.description": "Чтобы творить волшебство",
+
+	"advancement.scamshieldmain.rpgu_natures_staff.title": "По фарму чемпион",
+	"advancement.scamshieldmain.rpgu_natures_staff.description": "Контроль, увеличивающийся с потенциал",
+
+	"advancement.scamshieldmain.toughasnailsu_amethyst_water_bottle.title": "Добрый кола",
+	"advancement.scamshieldmain.toughasnailsu_amethyst_water_bottle.description": "Для экстремально высоких температур"
 }
