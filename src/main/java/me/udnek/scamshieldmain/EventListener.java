@@ -4,15 +4,15 @@ import me.udnek.itemscoreu.customevent.InitializationEvent;
 import me.udnek.itemscoreu.util.InitializationProcess;
 import me.udnek.itemscoreu.util.SelfRegisteringListener;
 import org.bukkit.Bukkit;
-import org.bukkit.GameRule;
 import org.bukkit.Keyed;
-import org.bukkit.Server;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.IOException;
 
 public class EventListener extends SelfRegisteringListener {
     public EventListener(JavaPlugin plugin) {
@@ -30,9 +30,12 @@ public class EventListener extends SelfRegisteringListener {
 
     @EventHandler
     public void onWorldLoaded(WorldLoadEvent event){
-        event.getWorld().setGameRule(GameRule.SPAWN_CHUNK_RADIUS, 0);
-        event.getWorld().setGameRule(GameRule.SPAWN_RADIUS, 0);
         Bukkit.spigot().getSpigotConfig().set("settings.moved-too-quickly-multiplier", 9999);
+        try {
+            Bukkit.spigot().getSpigotConfig().save("spigot.yml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @EventHandler
