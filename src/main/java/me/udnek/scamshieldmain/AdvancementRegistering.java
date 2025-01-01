@@ -150,7 +150,7 @@ public class AdvancementRegistering {
         addCriteria(amethystDirk, AND, AMETHYST_DIRK);advancements.add(amethystDirk);
 
         ConstructableCustomAdvancement nautilusCore = generate("nautilus_core", NAUTILUS_CORE.getItem(), amethystDirk);
-        addCriteria(nautilusCore, AND, AMETHYST_DIRK);advancements.add(nautilusCore);
+        addCriteria(nautilusCore, AND, NAUTILUS_CORE);advancements.add(nautilusCore);
 
         ConstructableCustomAdvancement amethystDoloire = generate(AMETHYST_DOLOIRE.getItem(), amethystDirk);
 

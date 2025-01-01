@@ -32,7 +32,7 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
 
         getCommand("infiniteregen").setExecutor(new InfiniteRegen());
 
-        restartTimer();
+        //restartTimer(); todo FIX
 
         new BukkitRunnable(){
             @Override
@@ -44,7 +44,7 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
         }.runTaskLater(ScamShieldMain.getInstance(), 100);
     }
 
-    private static void restartTimer() {
+    private void restartTimer() {
         ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Africa/Addis_Ababa"));
         ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
         Runnable restart = () -> Bukkit.getServer().spigot().restart();
