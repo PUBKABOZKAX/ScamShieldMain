@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 public final class ScamShieldMain extends JavaPlugin implements ResourcePackablePlugin {
     
-    public static final int timeOfRestart = 4 * 60;
+    public static final int RESTART_TIME = 4 * 60;
     
     private static ScamShieldMain instance;
 
@@ -51,10 +51,10 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
 
         int nowTime = now.getHour() * 60 + now.getMinute();
         int timeToReload;
-        if (nowTime >= timeOfRestart) {
-            timeToReload = 24 * 60 - (nowTime - timeOfRestart);
+        if (nowTime >= RESTART_TIME) {
+            timeToReload = 24 * 60 - (nowTime - RESTART_TIME);
         }else {
-            timeToReload = timeOfRestart - nowTime;
+            timeToReload = RESTART_TIME - nowTime;
         }
 
         scheduler.schedule(restart, timeToReload, TimeUnit.MINUTES);
