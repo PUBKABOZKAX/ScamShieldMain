@@ -5,7 +5,7 @@ import me.udnek.itemscoreu.customadvancement.AdvancementCriterion;
 import me.udnek.itemscoreu.customadvancement.ConstructableCustomAdvancement;
 import me.udnek.itemscoreu.customadvancement.CustomAdvancementDisplayBuilder;
 import me.udnek.itemscoreu.customitem.CustomItem;
-import me.udnek.itemscoreu.util.ItemUtils;
+import me.udnek.itemscoreu.customitem.ItemUtils;
 import me.udnek.toughasnailsu.util.Tags;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
