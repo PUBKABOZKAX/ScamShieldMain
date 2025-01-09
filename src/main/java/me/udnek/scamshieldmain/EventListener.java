@@ -1,7 +1,7 @@
 package me.udnek.scamshieldmain;
 
 import me.udnek.itemscoreu.customevent.InitializationEvent;
-import me.udnek.itemscoreu.util.InitializationProcess;
+import me.udnek.itemscoreu.customregistry.InitializationProcess;
 import me.udnek.itemscoreu.util.SelfRegisteringListener;
 import org.bukkit.Bukkit;
 import org.bukkit.Keyed;
