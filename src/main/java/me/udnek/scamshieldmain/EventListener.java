@@ -3,18 +3,33 @@ package me.udnek.scamshieldmain;
 import me.udnek.itemscoreu.customevent.InitializationEvent;
 import me.udnek.itemscoreu.customregistry.InitializationProcess;
 import me.udnek.itemscoreu.util.SelfRegisteringListener;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.ComponentLike;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.format.NamedTextColor;
+import net.kyori.adventure.text.format.Style;
+import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Bukkit;
 import org.bukkit.Keyed;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Properties;
 
 public class EventListener extends SelfRegisteringListener {
+
+    public static final String RESOURCEPACK_VERSION = "2.1.1";
+
     public EventListener(JavaPlugin plugin) {
         super(plugin);
     }
@@ -26,6 +41,28 @@ public class EventListener extends SelfRegisteringListener {
                 event.getPlayer().discoverRecipe(keyed.getKey());
             }
         });
+
+
+        try {
+            Properties properties = new Properties();
+            FileInputStream inputStream = new FileInputStream("server.properties");
+            properties.load(inputStream);
+            inputStream.close();
+            String resourcepack = properties.getProperty("resource-pack");
+            if (resourcepack.isEmpty()) return;
+
+            event.getPlayer().sendMessage(Component.translatable(
+                    "resourcepack.scamshieldmain.check_for_installed."+RESOURCEPACK_VERSION,
+                    "Ресурспак не установлен! *клик*"
+            ).applyFallbackStyle(
+                    Style.style().clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, resourcepack)).decorate(TextDecoration.UNDERLINED).color(NamedTextColor.RED).decorate(TextDecoration.BOLD).build())
+            );
+
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     @EventHandler
