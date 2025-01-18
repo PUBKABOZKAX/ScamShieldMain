@@ -8,16 +8,8 @@ import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-
 
 public final class ScamShieldMain extends JavaPlugin implements ResourcePackablePlugin {
-    
-    public static final int RESTART_TIME = 4 * 60;
     
     private static ScamShieldMain instance;
 
@@ -27,12 +19,9 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
     public void onEnable() {
         instance = this;
 
-
         new EventListener(ScamShieldMain.getInstance());
 
         getCommand("infiniteregen").setExecutor(new InfiniteRegen());
-
-        //restartTimer(); todo FIX
 
         new BukkitRunnable(){
             @Override
@@ -42,21 +31,5 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
                 world.setGameRule(GameRule.SPAWN_RADIUS, 0);
             }
         }.runTaskLater(ScamShieldMain.getInstance(), 100);
-    }
-
-    private void restartTimer() {
-        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Africa/Addis_Ababa"));
-        ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
-        Runnable restart = () -> Bukkit.getServer().spigot().restart();
-
-        int nowTime = now.getHour() * 60 + now.getMinute();
-        int timeToReload;
-        if (nowTime >= RESTART_TIME) {
-            timeToReload = 24 * 60 - (nowTime - RESTART_TIME);
-        }else {
-            timeToReload = RESTART_TIME - nowTime;
-        }
-
-        scheduler.schedule(restart, timeToReload, TimeUnit.MINUTES);
     }
 }
