@@ -23,7 +23,7 @@ import java.util.Properties;
 
 public class EventListener extends SelfRegisteringListener {
 
-    public static final String RESOURCEPACK_VERSION = "2.1.1";
+    public static final String RESOURCEPACK_VERSION = "2.1.2";
 
     public EventListener(JavaPlugin plugin) {
         super(plugin);
