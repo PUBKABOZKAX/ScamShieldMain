@@ -13,9 +13,11 @@ import org.bukkit.Keyed;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityExplodeEvent;
+import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -25,9 +27,7 @@ public class EventListener extends SelfRegisteringListener {
 
     public static final String RESOURCEPACK_VERSION = "2.1.2";
 
-    public EventListener(JavaPlugin plugin) {
-        super(plugin);
-    }
+    public EventListener(@NotNull JavaPlugin plugin) {super(plugin);}
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
@@ -36,7 +36,6 @@ public class EventListener extends SelfRegisteringListener {
                 event.getPlayer().discoverRecipe(keyed.getKey());
             }
         });
-
 
         try {
             Properties properties = new Properties();

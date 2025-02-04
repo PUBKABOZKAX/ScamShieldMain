@@ -2,6 +2,8 @@ package me.udnek.scamshieldmain;
 
 import me.udnek.itemscoreu.resourcepack.ResourcePackablePlugin;
 import me.udnek.scamshieldmain.command.InfiniteRegen;
+import me.udnek.scamshieldmain.effect.DisableInteractionEffect;
+import me.udnek.scamshieldmain.effect.Effects;
 import org.bukkit.Bukkit;
 import org.bukkit.GameRule;
 import org.bukkit.World;
@@ -20,8 +22,10 @@ public final class ScamShieldMain extends JavaPlugin implements ResourcePackable
         instance = this;
 
         new EventListener(ScamShieldMain.getInstance());
+        DemoModeManager.getInstance();
+        DisableInteractionEffect effect = Effects.DISABLE_INTERACTION;
 
-        getCommand("infiniteregen").setExecutor(new InfiniteRegen());
+        getCommand("infinite_regen").setExecutor(new InfiniteRegen());
 
         new BukkitRunnable(){
             @Override

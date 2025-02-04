@@ -4,9 +4,9 @@ main: me.udnek.scamshieldmain.ScamShieldMain
 api-version: '1.21'
 depend: [RpgU,JeiU,ToughAsNailsU,ItemsCoreU]
 commands:
-  infiniteregen:
-    description: "infiniteregen"
-    usage: "/infiniteregen"
+  infinite_regen:
+    description: "infinite_regen"
+    usage: "/infinite_regen"
     aliases: [ ]
     permission: tanu.admin
     permission-message: "You do not have permission to use this command"
