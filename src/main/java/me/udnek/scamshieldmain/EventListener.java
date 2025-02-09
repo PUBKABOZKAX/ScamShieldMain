@@ -28,7 +28,7 @@ import java.util.Properties;
 
 public class EventListener extends SelfRegisteringListener {
 
-    public static final String RESOURCEPACK_VERSION = "2.1.3";
+    public static final String RESOURCEPACK_VERSION = "2.1.4";
 
     public static final String RESOURCEPACK_MESSAGE = "resourcepack.scamshieldmain.check_for_installed."+RESOURCEPACK_VERSION;
 
