@@ -10,6 +10,7 @@ import de.myzelyam.supervanish.SuperVanishPlugin;
 import de.myzelyam.supervanish.VanishPlayer;
 import de.myzelyam.supervanish.commands.subcommands.VanishedList;
 import de.myzelyam.supervanish.visibility.VanishStateMgr;
+import me.udnek.itemscoreu.util.LogUtils;
 import me.udnek.itemscoreu.util.SelfRegisteringListener;
 import me.udnek.scamshieldmain.effect.Effects;
 import net.kyori.adventure.text.Component;
@@ -17,10 +18,7 @@ import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextDecoration;
-import org.bukkit.Bukkit;
-import org.bukkit.GameEvent;
-import org.bukkit.GameMode;
-import org.bukkit.Location;
+import org.bukkit.*;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,6 +30,8 @@ import org.bukkit.event.player.PlayerPortalEvent;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.util.BoundingBox;
+import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
@@ -87,7 +87,7 @@ public class DemoModeManager extends SelfRegisteringListener {
     public void onJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
         if (!player.isWhitelisted()) {
-            System.out.println(player.getName() + " is not whitelisted");
+            LogUtils.log(player.getName() + " is not whitelisted");
             setDemo(player);
         } else {
             removeDemo(player);
@@ -97,18 +97,24 @@ public class DemoModeManager extends SelfRegisteringListener {
             vanish.getVisibilityChanger().hidePlayer(player);
             Effects.DISABLE_INTERACTION.applyInvisible(player, -1, 0);
 
+            final Location spawnLocation = player.getWorld().getSpawnLocation();
+            final Location spawnLocationY0 = spawnLocation.clone().subtract(0, spawnLocation.y(), 0);
+
             new BukkitRunnable() {
                 @Override
                 public void run() {
                     player.setGameMode(GameMode.ADVENTURE);
                     vanish.getVisibilityChanger().hidePlayer(player);
                     player.setAllowFlight(true);
+                    WorldBorder worldBorder = Bukkit.createWorldBorder();
+                    worldBorder.setCenter(spawnLocation);
+                    worldBorder.setSize(MAX_DISTANCE_FROM_CENTER*2);
+                    player.setWorldBorder(worldBorder);
                 }
             }.runTaskLater(ScamShieldMain.getInstance(), 20*2);
 
             new BukkitRunnable() {
-                final Location spawnLocation = player.getWorld().getSpawnLocation();
-                final Location spawnLocationY0 = spawnLocation.clone().subtract(0, spawnLocation.y(), 0);
+
                 int count = -1;
                 @Override
                 public void run() {
@@ -129,12 +135,18 @@ public class DemoModeManager extends SelfRegisteringListener {
 
                     Location playerLocationY0 = player.getLocation();
                     playerLocationY0.setY(0);
-                    if (spawnLocationY0.distanceSquared(playerLocationY0) < Math.pow(MAX_DISTANCE_FROM_CENTER, 2)) return;
 
-                    Vector inRadiusDistance = playerLocationY0.subtract(spawnLocationY0).toVector().normalize().multiply(MAX_DISTANCE_FROM_CENTER);
-                    Location tpLocation = spawnLocationY0.clone().add(inRadiusDistance).setDirection(playerLocationY0.getDirection());
-                    tpLocation.setY(player.getLocation().y());
-                    player.teleport(tpLocation);
+                    BoundingBox boundingBox = BoundingBox.of(spawnLocationY0, MAX_DISTANCE_FROM_CENTER, 999999999, MAX_DISTANCE_FROM_CENTER);
+                    if (boundingBox.contains(playerLocationY0.toVector())) return;
+
+                    RayTraceResult rayTrace = boundingBox.rayTrace(playerLocationY0.toVector(), boundingBox.getCenter().subtract(playerLocationY0.toVector()), 99999);
+                    if (rayTrace == null){
+                        player.teleport(spawnLocation);
+                    } else {
+                        playerLocationY0.set(rayTrace.getHitPosition().getX(), player.getLocation().getY(), rayTrace.getHitPosition().getZ());
+                        player.teleport(playerLocationY0);
+                    }
+
                     player.sendMessage(TO_FAR_MESSAGE);
                 }
             }.runTaskTimer(ScamShieldMain.getInstance(), 20*2, 20*2);
@@ -142,6 +154,7 @@ public class DemoModeManager extends SelfRegisteringListener {
 
         } else {
             player.removePotionEffect(Effects.DISABLE_INTERACTION.getBukkitType());
+            player.setWorldBorder(null);
             if (player.isOp()) return;
             player.setAllowFlight(false);
             vanish.getVisibilityChanger().showPlayer(player);

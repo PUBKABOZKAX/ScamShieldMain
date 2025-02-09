@@ -1,7 +1,10 @@
 package me.udnek.scamshieldmain;
 
+import com.google.gson.JsonParser;
 import me.udnek.itemscoreu.customevent.InitializationEvent;
+import me.udnek.itemscoreu.customevent.ResourcepackInitializationEvent;
 import me.udnek.itemscoreu.customregistry.InitializationProcess;
+import me.udnek.itemscoreu.resourcepack.path.VirtualRpJsonFile;
 import me.udnek.itemscoreu.util.SelfRegisteringListener;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
@@ -27,7 +30,18 @@ public class EventListener extends SelfRegisteringListener {
 
     public static final String RESOURCEPACK_VERSION = "2.1.2";
 
+    public static final String RESOURCEPACK_MESSAGE = "resourcepack.scamshieldmain.check_for_installed."+RESOURCEPACK_VERSION;
+
     public EventListener(@NotNull JavaPlugin plugin) {super(plugin);}
+
+    @EventHandler
+    public void onResourcepack(ResourcepackInitializationEvent event){
+        event.forceAddFile(new VirtualRpJsonFile(JsonParser.parseString("""
+                {
+                    "%message%": "§a§lРесурспак установлен!"
+                }
+                """.replace("%message%", RESOURCEPACK_MESSAGE)).getAsJsonObject(), "assets/scamshieldmain/lang/en_us.json"));
+    }
 
     @EventHandler
     public void onJoin(PlayerJoinEvent event){
@@ -46,7 +60,7 @@ public class EventListener extends SelfRegisteringListener {
             if (resourcepack.isEmpty()) return;
 
             event.getPlayer().sendMessage(Component.translatable(
-                    "resourcepack.scamshieldmain.check_for_installed."+RESOURCEPACK_VERSION,
+                    RESOURCEPACK_MESSAGE,
                     "Ресурспак не установлен! *клик*"
             ).applyFallbackStyle(
                     Style.style().clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, resourcepack)).decorate(TextDecoration.UNDERLINED).color(NamedTextColor.RED).decorate(TextDecoration.BOLD).build())
