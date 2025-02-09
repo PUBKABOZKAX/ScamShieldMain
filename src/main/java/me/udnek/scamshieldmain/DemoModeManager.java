@@ -96,6 +96,7 @@ public class DemoModeManager extends SelfRegisteringListener {
         if (isDemo(player)){
             vanish.getVisibilityChanger().hidePlayer(player);
             Effects.DISABLE_INTERACTION.applyInvisible(player, -1, 0);
+            Effects.TEMPERATURE_INVULNERABILITY.applyInvisible(player, -1, 0);
 
             final Location spawnLocation = player.getWorld().getSpawnLocation();
             final Location spawnLocationY0 = spawnLocation.clone().subtract(0, spawnLocation.y(), 0);
@@ -153,7 +154,8 @@ public class DemoModeManager extends SelfRegisteringListener {
 
 
         } else {
-            player.removePotionEffect(Effects.DISABLE_INTERACTION.getBukkitType());
+            Effects.TEMPERATURE_INVULNERABILITY.remove(player);
+            Effects.DISABLE_INTERACTION.remove(player);
             player.setWorldBorder(null);
             if (player.isOp()) return;
             player.setAllowFlight(false);
