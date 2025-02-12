@@ -16,7 +16,6 @@ import org.bukkit.Keyed;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityExplodeEvent;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,7 +27,7 @@ import java.util.Properties;
 
 public class EventListener extends SelfRegisteringListener {
 
-    public static final String RESOURCEPACK_VERSION = "2.1.4";
+    public static final String RESOURCEPACK_VERSION = "2.1.5";
 
     public static final String RESOURCEPACK_MESSAGE = "resourcepack.scamshieldmain.check_for_installed."+RESOURCEPACK_VERSION;
 
