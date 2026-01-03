@@ -1,38 +1,27 @@
 package me.udnek.scamshieldmain;
 
-import com.comphenix.protocol.PacketType;
-import com.comphenix.protocol.ProtocolLib;
-import com.comphenix.protocol.ProtocolLibrary;
-import com.comphenix.protocol.ProtocolManager;
-import com.comphenix.protocol.events.PacketContainer;
+import com.destroystokyo.paper.event.profile.ProfileWhitelistVerifyEvent;
 import de.myzelyam.supervanish.SuperVanish;
-import de.myzelyam.supervanish.SuperVanishPlugin;
-import de.myzelyam.supervanish.VanishPlayer;
-import de.myzelyam.supervanish.commands.subcommands.VanishedList;
-import de.myzelyam.supervanish.visibility.VanishStateMgr;
-import me.udnek.itemscoreu.util.LogUtils;
-import me.udnek.itemscoreu.util.SelfRegisteringListener;
+import me.udnek.coreu.util.LogUtils;
+import me.udnek.coreu.util.SelfRegisteringListener;
 import me.udnek.scamshieldmain.effect.Effects;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
-import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextDecoration;
-import org.bukkit.*;
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.WorldBorder;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityPortalEvent;
-import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.event.player.PlayerPortalEvent;
-import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.BoundingBox;
 import org.bukkit.util.RayTraceResult;
-import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -45,7 +34,7 @@ public class DemoModeManager extends SelfRegisteringListener {
     public static final Component TG_MESSAGE =
             Component.text("Напишите в тг " )
                     .append(Component.text("@dezzo4q (*клик*)")
-                                    .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, "https://t.me/dezzo4q"))
+                                    .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, ClickEvent.Payload.string("https://t.me/dezzo4q")))
                                     .color(NamedTextColor.AQUA).decorate(TextDecoration.UNDERLINED)
                     )
                     .append(Component.text(" для добавления в вайтлист"));
@@ -77,10 +66,8 @@ public class DemoModeManager extends SelfRegisteringListener {
     }
 
     @EventHandler
-    public void onLogin(PlayerLoginEvent event){
-        if (event.getResult() == PlayerLoginEvent.Result.KICK_WHITELIST){
-            event.allow();
-        }
+    public void onLogin(ProfileWhitelistVerifyEvent event){
+        event.setWhitelisted(true);
     }
 
     @EventHandler

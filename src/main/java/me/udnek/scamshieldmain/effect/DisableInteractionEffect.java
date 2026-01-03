@@ -1,6 +1,6 @@
 package me.udnek.scamshieldmain.effect;
 
-import me.udnek.itemscoreu.customeffect.ConstructableCustomEffect;
+import me.udnek.coreu.custom.effect.ConstructableCustomEffect;
 import me.udnek.scamshieldmain.ScamShieldMain;
 import org.bukkit.NamespacedKey;
 import org.bukkit.attribute.Attribute;

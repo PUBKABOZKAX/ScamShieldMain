@@ -1,11 +1,11 @@
 package me.udnek.scamshieldmain;
 
 import com.google.gson.JsonParser;
-import me.udnek.itemscoreu.customevent.InitializationEvent;
-import me.udnek.itemscoreu.customevent.ResourcepackInitializationEvent;
-import me.udnek.itemscoreu.customregistry.InitializationProcess;
-import me.udnek.itemscoreu.resourcepack.path.VirtualRpJsonFile;
-import me.udnek.itemscoreu.util.SelfRegisteringListener;
+import me.udnek.coreu.custom.event.InitializationEvent;
+import me.udnek.coreu.custom.event.ResourcepackInitializationEvent;
+import me.udnek.coreu.custom.registry.InitializationProcess;
+import me.udnek.coreu.resourcepack.path.VirtualRpJsonFile;
+import me.udnek.coreu.util.SelfRegisteringListener;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
@@ -13,6 +13,8 @@ import net.kyori.adventure.text.format.Style;
 import net.kyori.adventure.text.format.TextDecoration;
 import org.bukkit.Bukkit;
 import org.bukkit.Keyed;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityExplodeEvent;
@@ -21,6 +23,7 @@ import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
@@ -62,7 +65,8 @@ public class EventListener extends SelfRegisteringListener {
                     RESOURCEPACK_MESSAGE,
                     "Ресурспак не установлен! *клик*"
             ).applyFallbackStyle(
-                    Style.style().clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, resourcepack)).decorate(TextDecoration.UNDERLINED).color(NamedTextColor.RED).decorate(TextDecoration.BOLD).build())
+                    Style.style().clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, ClickEvent.Payload.string(resourcepack)))
+                            .decorate(TextDecoration.UNDERLINED).color(NamedTextColor.RED).decorate(TextDecoration.BOLD).build())
             );
 
 
@@ -74,17 +78,28 @@ public class EventListener extends SelfRegisteringListener {
 
     @EventHandler
     public void onWorldLoaded(WorldLoadEvent event){
+        File spigotFile = new File("spigot.yml");
+        FileConfiguration spigotConfig = YamlConfiguration.loadConfiguration(spigotFile);
+
+        spigotConfig.set("settings.moved-too-quickly-multiplier", 9999.0);
+
+        try {
+            spigotConfig.save(spigotFile);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to save spigot.yml", e);
+        }
+        /*Bukkit.getServer()
         Bukkit.spigot().getSpigotConfig().set("settings.moved-too-quickly-multiplier", 9999);
         try {
             Bukkit.spigot().getSpigotConfig().save("spigot.yml");
         } catch (IOException e) {
             throw new RuntimeException(e);
-        }
+        }*/
     }
 
     @EventHandler
     public void onInit(InitializationEvent event) {
-        if (event.getStep() == InitializationProcess.Step.AFTER_REGISTRIES_INITIALIZATION) AdvancementRegistering.run();
+        if (event.getStep() == InitializationProcess.Step.AFTER_GLOBAL_INITIALIZATION) AdvancementRegistering.run();
     }
 
     @EventHandler

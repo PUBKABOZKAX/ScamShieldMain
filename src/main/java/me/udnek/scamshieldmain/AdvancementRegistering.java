@@ -1,11 +1,11 @@
 package me.udnek.scamshieldmain;
 
 
-import me.udnek.itemscoreu.customadvancement.AdvancementCriterion;
-import me.udnek.itemscoreu.customadvancement.ConstructableCustomAdvancement;
-import me.udnek.itemscoreu.customadvancement.CustomAdvancementDisplayBuilder;
-import me.udnek.itemscoreu.customitem.CustomItem;
-import me.udnek.itemscoreu.customitem.ItemUtils;
+import me.udnek.coreu.custom.advancement.AdvancementCriterion;
+import me.udnek.coreu.custom.advancement.ConstructableCustomAdvancement;
+import me.udnek.coreu.custom.advancement.CustomAdvancementDisplayBuilder;
+import me.udnek.coreu.custom.item.CustomItem;
+import me.udnek.coreu.custom.item.ItemUtils;
 import me.udnek.toughasnailsu.util.Tags;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Material;
@@ -18,8 +18,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-import static me.udnek.itemscoreu.customadvancement.CustomAdvancementContainer.RequirementsStrategy.AND;
-import static me.udnek.itemscoreu.customadvancement.CustomAdvancementContainer.RequirementsStrategy.OR;
+import static me.udnek.coreu.custom.advancement.CustomAdvancementContainer.RequirementsStrategy.AND;
+import static me.udnek.coreu.custom.advancement.CustomAdvancementContainer.RequirementsStrategy.OR;
 import static me.udnek.rpgu.item.Items.*;
 import static me.udnek.toughasnailsu.item.Items.*;
 import static org.bukkit.Material.*;
