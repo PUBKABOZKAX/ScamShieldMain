@@ -1,7 +1,7 @@
 name: ScamShieldMain
 version: '1.0-SNAPSHOT'
 main: me.udnek.scamshieldmain.ScamShieldMain
-api-version: '1.21.4'
+api-version: '1.21.11'
 depend: [RpgU,JeiU,ToughAsNailsU,CoreU,SuperVanish]
 commands:
   infinite_regen:

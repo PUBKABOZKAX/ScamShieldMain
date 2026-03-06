@@ -1,6 +1,7 @@
 package me.udnek.scamshieldmain;
 
 import com.destroystokyo.paper.event.profile.ProfileWhitelistVerifyEvent;
+import de.myzelyam.api.vanish.VanishAPI;
 import de.myzelyam.supervanish.SuperVanish;
 import me.udnek.coreu.util.LogUtils;
 import me.udnek.coreu.util.SelfRegisteringListener;
@@ -22,11 +23,13 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.BoundingBox;
 import org.bukkit.util.RayTraceResult;
-import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.NullMarked;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@NullMarked
 public class DemoModeManager extends SelfRegisteringListener {
 
     public static final int MAX_DISTANCE_FROM_CENTER = 150;
@@ -44,20 +47,20 @@ public class DemoModeManager extends SelfRegisteringListener {
             .color(NamedTextColor.RED);
 
 
-    private static DemoModeManager instance;
+    private static @Nullable DemoModeManager instance;
 
     private final List<Player> players = new ArrayList<>();
 
-    public DemoModeManager(@NotNull Plugin plugin) {super(plugin);}
+    public DemoModeManager(Plugin plugin) {super(plugin);}
 
-    public static @NotNull DemoModeManager getInstance() {
+    public static DemoModeManager getInstance() {
         if (instance == null) instance = new DemoModeManager(ScamShieldMain.getInstance());
         return instance;
     }
 
-    public boolean isDemo(@NotNull Player player){return players.contains(player);}
-    public void setDemo(@NotNull Player player){if (!isDemo(player)) players.add(player);}
-    public void removeDemo(@NotNull Player player){players.remove(player);}
+    public boolean isDemo(Player player){return players.contains(player);}
+    public void setDemo(Player player){if (!isDemo(player)) players.add(player);}
+    public void removeDemo(Player player){players.remove(player);}
 
     @EventHandler
     public void onPortalTeleport(EntityPortalEvent event){
@@ -74,12 +77,12 @@ public class DemoModeManager extends SelfRegisteringListener {
     public void onJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
         if (!player.isWhitelisted()) {
-            LogUtils.log(player.getName() + " is not whitelisted");
+            LogUtils.log(ScamShieldMain.getInstance(), player.getName() + " is not whitelisted");
             setDemo(player);
         } else {
             removeDemo(player);
         }
-        SuperVanish vanish = SuperVanish.getPlugin(SuperVanish.class);
+        SuperVanish vanish = VanishAPI.getPlugin();
         if (isDemo(player)){
             vanish.getVisibilityChanger().hidePlayer(player);
             Effects.DISABLE_INTERACTION.applyInvisible(player, -1, 0);

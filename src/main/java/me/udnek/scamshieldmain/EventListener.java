@@ -4,7 +4,7 @@ import com.google.gson.JsonParser;
 import me.udnek.coreu.custom.event.InitializationEvent;
 import me.udnek.coreu.custom.event.ResourcepackInitializationEvent;
 import me.udnek.coreu.custom.registry.InitializationProcess;
-import me.udnek.coreu.resourcepack.path.VirtualRpJsonFile;
+import me.udnek.coreu.resourcepack.file.RpJsonFile;
 import me.udnek.coreu.util.SelfRegisteringListener;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.event.ClickEvent;
@@ -21,28 +21,31 @@ import org.bukkit.event.entity.EntityExplodeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
+import org.jspecify.annotations.NullMarked;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+@NullMarked
 public class EventListener extends SelfRegisteringListener {
 
     public static final String RESOURCEPACK_VERSION = "2.1.5";
 
     public static final String RESOURCEPACK_MESSAGE = "resourcepack.scamshieldmain.check_for_installed."+RESOURCEPACK_VERSION;
 
-    public EventListener(@NotNull JavaPlugin plugin) {super(plugin);}
+    public EventListener(JavaPlugin plugin) {super(plugin);}
 
     @EventHandler
     public void onResourcepack(ResourcepackInitializationEvent event){
-        event.forceAddFile(new VirtualRpJsonFile(JsonParser.parseString("""
+        event.addFile(new RpJsonFile(this,
+                "assets/scamshieldmain/lang/en_us.json",
+                JsonParser.parseString("""
                 {
                     "%message%": "§a§lРесурспак установлен!"
                 }
-                """.replace("%message%", RESOURCEPACK_MESSAGE)).getAsJsonObject(), "assets/scamshieldmain/lang/en_us.json"));
+                """.replace("%message%", RESOURCEPACK_MESSAGE)).getAsJsonObject()));
     }
 
     @EventHandler
