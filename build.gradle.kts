@@ -34,10 +34,10 @@ dependencies {
 
     compileOnly("net.dmulloy2:ProtocolLib:5.4.0")
 
-    compileOnly(files("C:/Users/PC/IdeaProjects/CoreU/build/libs/CoreU-1.0-SNAPSHOT.jar"))
-    compileOnly(files("C:/Users/PC/IdeaProjects/JeiU/build/libs/JeiU-1.0-SNAPSHOT.jar"))
-    compileOnly(files("C:/Users/PC/IdeaProjects/RpgU/build/libs/RpgU-1.0-SNAPSHOT.jar"))
-    compileOnly(files("C:/Users/PC/IdeaProjects/ToughAsNailsU/build/libs/ToughAsNailsU-1.0-SNAPSHOT.jar"))
+    compileOnly(files("../CoreU/build/libs/CoreU-1.0-SNAPSHOT.jar"))
+    compileOnly(files("../JeiU/build/libs/JeiU-1.0-SNAPSHOT.jar"))
+    compileOnly(files("../RpgU/build/libs/RpgU-1.0-SNAPSHOT.jar"))
+    compileOnly(files("../ToughAsNailsU/build/libs/ToughAsNailsU-1.0-SNAPSHOT.jar"))
 
     implementation("com.github.LeonMangler:SuperVanish:6.2.18-3")
 }
